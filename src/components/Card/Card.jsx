@@ -47,6 +47,7 @@ const WrapperWindHumidity = styled.div`
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
+    padding-left: 20px;
     #wind {
         display: flex;
         justify-content: center;

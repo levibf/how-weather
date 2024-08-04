@@ -13,6 +13,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* background-image: url('/src/assets/Designer.jpeg');
+  background-repeat: no-repeat;
+  background-size: contain; */
 }
 
 a {

@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { useState, useEffect } from 'react';
 import { FaWind } from "react-icons/fa6";
 import { WiHumidity } from "react-icons/wi";
-import { CiLocationOn } from "react-icons/ci";
+import { FaLocationDot } from "react-icons/fa6";
 import axios from "axios";
 
 const Wrapper = styled.div`
@@ -21,6 +21,12 @@ const Input = styled.input`
     background-color: white;
     color: black;
 `;
+
+const Location = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
 
 const DisplayComponent = styled.div`
 `;
@@ -53,6 +59,7 @@ export default function Card() {
     const [inputValue, setInputValue] = useState('');
     const [temperature, setTemperature] = useState(null);
     const [condition, setCondition] = useState(null);
+    const [location, setLocation] = useState(null);
 
     const handleInput = (event) => {
         setInputValue(event.target.value);
@@ -65,7 +72,7 @@ export default function Card() {
                 const response = await axios.get(`http://api.weatherapi.com/v1/current.json?key=045fc69dd3d748eab17190100240308&lang=pt&q=${inputValue}`);
                 setTemperature(response.data.current.temp_c);
                 setCondition(response.data.current);
-                console.log(response.data)
+                setLocation(response.data.location.name)
             } catch (error) {
                 console.error("Erro ao buscar dados", error);
             }
@@ -88,9 +95,13 @@ export default function Card() {
             </form>
 
             <DisplayComponent>
-                {/* <CiLocationOn /> */}
-                <h3>{inputValue}</h3>
-                {temperature !== null && <p>Temp: {temperature}°C</p>}
+                {condition && (
+                    <Location>
+                        <FaLocationDot size={40} />
+                        <h3>{location}</h3>
+                    </Location>
+                )}
+                {temperature !== null && <h1>{temperature} °C</h1>}
 
                 {condition && (
                     <WrapperCondition>
@@ -104,8 +115,7 @@ export default function Card() {
                         <WiHumidity size={30} />
                         <p> {condition.humidity}%</p>
                         <div id="wind">
-                            <FaWind />
-                            <p>{condition.wind_kph} Km/h</p>
+                            <p><FaWind /> {condition.wind_kph} Km/h</p>
                         </div>
                     </WrapperWindHumidity>
                 )}

@@ -69,7 +69,7 @@ export default function Card() {
         event.preventDefault();
         if (inputValue) {
             try {
-                const response = await axios.get(`http://api.weatherapi.com/v1/current.json?key=045fc69dd3d748eab17190100240308&lang=pt&q=${inputValue}`);
+                const response = await axios.get(`https://api.weatherapi.com/v1/current.json?key=045fc69dd3d748eab17190100240308&lang=pt&q=${inputValue}`);
                 setTemperature(response.data.current.temp_c);
                 setCondition(response.data.current);
                 setLocation(response.data.location.name)

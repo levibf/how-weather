@@ -11,15 +11,17 @@ const Wrapper = styled.div`
     width: 300px;
     height: auto;
     border-radius: 1em;
-    padding: 25px;
-    background-color: #546bed;
+    padding: 2em;
+    background-color: rgba(84, 107, 237, 0.5);
+    box-shadow: 0px 0px 8px 0px #2B2B2B;
 `;
 
 const Input = styled.input`
     height: 35px;
-    border-radius: 4px;
+    border-radius: 1em;
     background-color: white;
     color: black;
+    border: none;
 `;
 
 const Location = styled.div`
@@ -105,7 +107,7 @@ export default function Card() {
 
                 {condition && (
                     <WrapperCondition>
-                        <p>Condição: {condition.condition.text}</p>
+                        <p>Clima: {condition.condition.text}</p>
                         <img src={condition.condition.icon} alt="icone tempo" width={45} />
                     </WrapperCondition>
                 )}

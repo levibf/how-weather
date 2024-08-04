@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 :root {
-  font-family: "Inter", sans-serif;
-  line-height: 1.5;
-  font-weight: 500;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -14,9 +10,18 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* background-image: url('/src/assets/Designer.jpeg');
-  background-repeat: no-repeat;
-  background-size: contain; */
+  background: rgb(238, 174, 202);
+  background: linear-gradient(121deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+}
+
+* {
+  font-family: "Inter", sans-serif;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+input[type='text'] {
+  text-align: center;
 }
 
 a {
@@ -60,7 +65,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #2f0fe0;
   cursor: pointer;
   transition: border-color 0.25s;
 }
